@@ -73,6 +73,7 @@ int main(int argc, char **argv){
         return 1;
     }
 
+    // make space for executable code
     void *allocated_code = mmap(
         NULL, bin_size-sizeof(valid_signature), 
         PROT_EXEC | PROT_READ | PROT_WRITE, 
