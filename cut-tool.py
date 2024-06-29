@@ -1,3 +1,4 @@
+# cut executables to tinyx header if ld --oformat binary didn't work
 import sys
 if len(sys.argv) < 2:
     print(f"usage: cut_tool.py <executable>")
