@@ -16,14 +16,14 @@ made by aceinet (2022-present)
 #define MAP_ANONYMOUS 0x20
 #endif
 
-typedef int (*entry_f)(int, char **);
+typedef int (*entry_f)(int, char **, char **);
 
 void die(const char *s) {
   puts(s);
   exit(1);
 }
 
-int main(int argc, char **argv) {
+int main(int argc, char **argv, char **envp) {
   if (argc < 2) {
     die("e: no program specified");
   }
@@ -93,5 +93,5 @@ int main(int argc, char **argv) {
   exec.entry_voidp = allocated_code + sizeof(signature);
 
   // finally, run the executable
-  return exec.entry(argc, argv);
+  return exec.entry(argc, argv, envp);
 }
